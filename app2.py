@@ -1,14 +1,15 @@
 import streamlit as st
 import pickle
+import joblib
 import numpy as np
 
 # Load trained pipeline
 with open('pipe.pkl', 'rb') as file:
-    pipe = pickle.load(file)
+    pipe = joblib.load("pipe.pkl")
 
 # Load dataframe for dropdown options
 with open('df.pkl', 'rb') as file:
-    df = pickle.load(file)
+    df = joblib.load(file)
 
 st.title("💻 Laptop Price Predictor")
 
@@ -60,3 +61,4 @@ if st.button('Predict Price'):
 
     prediction = pipe.predict(query)[0]
     st.subheader(f"💰 Estimated Laptop Price: ₹ {np.exp(prediction):,.0f}")
+
