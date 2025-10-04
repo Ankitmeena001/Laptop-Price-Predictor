@@ -2,6 +2,11 @@ import streamlit as st
 import pickle
 import joblib
 import numpy as np
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, VotingRegressor
+from sklearn.tree import DecisionTreeRegressor
 
 # Load trained pipeline
 with open('pipe.pkl', 'rb') as file:
@@ -61,6 +66,7 @@ if st.button('Predict Price'):
 
     prediction = pipe.predict(query)[0]
     st.subheader(f"💰 Estimated Laptop Price: ₹ {np.exp(prediction):,.0f}")
+
 
 
 
