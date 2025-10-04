@@ -8,6 +8,10 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, VotingRegressor
 from sklearn.tree import DecisionTreeRegressor
 
+base_dir = os.path.dirname(__file__)
+pipe_path = os.path.join(base_dir, "pipe.pkl")
+df_path = os.path.join(base_dir, "df.pkl")
+
 # Load trained pipeline
 with open('pipe.pkl', 'rb') as file:
     pipe = pickle.load(file)
@@ -66,6 +70,7 @@ if st.button('Predict Price'):
 
     prediction = pipe.predict(query)[0]
     st.subheader(f"💰 Estimated Laptop Price: ₹ {np.exp(prediction):,.0f}")
+
 
 
 
