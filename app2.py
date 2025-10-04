@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pickle
 import joblib
@@ -70,6 +71,7 @@ if st.button('Predict Price'):
 
     prediction = pipe.predict(query)[0]
     st.subheader(f"💰 Estimated Laptop Price: ₹ {np.exp(prediction):,.0f}")
+
 
 
 
