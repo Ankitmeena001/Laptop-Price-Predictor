@@ -2,6 +2,7 @@ streamlit
 pandas==2.2.2
 numpy==1.26.4
 sklearn==1.5.1
-joblib
+joblib==1.5.1
+
 
 
