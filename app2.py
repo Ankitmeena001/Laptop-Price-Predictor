@@ -1,5 +1,5 @@
 import streamlit as st
-import pickle
+import joblib
 import numpy as np
 import pandas as pd
 
@@ -7,7 +7,7 @@ import pandas as pd
 # Load the trained model
 # -----------------------
 # Make sure 'pipe.pkl' is in the same folder as this app.py
-pipe = pickle.load(open('pipe.pkl', 'rb'))
+pipe = joblib.load(open('pipe.pkl', 'rb'))
 
 # -----------------------
 # Streamlit UI
@@ -60,6 +60,7 @@ if st.button("Predict Price 💰"):
 # Footer
 # -----------------------
 st.caption("Made with ❤️ using Streamlit")
+
 
 
 
